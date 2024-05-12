@@ -55,8 +55,8 @@ class AppFixtures extends Fixture
         $movie2->setReleaseYear(2024);
         $movie2->setImagePath('https://images.unsplash.com/photo-1494931216633-3f436bf43829?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
         // add data to pivot table movie_actor
-        $movie->addActor($this->getReference('actor_3'));
-        $movie->addActor($this->getReference('actor_4'));
+        $movie2->addActor($this->getReference('actor_3'));
+        $movie2->addActor($this->getReference('actor_4'));
 
         $manager->persist($movie2);
 
