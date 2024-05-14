@@ -1,0 +1,44 @@
+{% extends "./base.html.twig" %}
+
+{% block body %}
+	<div class="sm:w-3/5 w-4/5 mx-auto">
+
+		{% for message in app.flashes('success') %}
+			<div class="mt-40 p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
+				<span class="font-medium">alert !</span>
+				{{message}}
+			</div>
+		{% endfor %}
+		<h1 class="pt-20 sm:text-5xl md:text-7xl text-4xl font-bold text-center">
+			{{ movie.title }}
+		</h1>
+
+		<div class="py-10 text-center">
+			<div class="inline-block sm:pt-1">
+				<h2 class="font-bold">
+					Release Year
+				</h2>
+
+				<p class="text-sm text-gray-600">
+					{{ movie.ReleaseYear }}
+				</p>
+			</div>
+		</div>
+
+		<img src="{{ asset(movie.imagePath) }}" class="rounded-xl size-96 w-full shadow-xl" alt="Icon of Code With Dary"/>
+
+		<p class="text-xl py-6">
+			{{ movie.description }}
+		</p>
+
+		{# {% if app.user and movie.userId == app.user.id %} #}
+		<a href="{{path('movies.update',{id:movie.id})}}" class="bg-green-500 font-bold py-2 px-4 rounded transition-all hover:bg-green-300">
+			Edit Movie
+		</a>
+
+		<a href="{{path('movies.delete',{ id: movie.id})}}" class="bg-red-500 font-bold py-2 px-4 ml-6 rounded transition-all hover:bg-red-300">
+			Delete Movie
+		</a>
+		{# {% endif %} #}
+	</div>
+{% endblock %}
